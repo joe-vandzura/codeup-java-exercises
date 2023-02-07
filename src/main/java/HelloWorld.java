@@ -1,5 +1,3 @@
-package hello;
-
 public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello World");
@@ -22,7 +20,6 @@ public class HelloWorld {
 
         byte maxNum = Byte.MAX_VALUE;
         System.out.println(maxNum);
-
 
     }
 }
