@@ -1,21 +1,18 @@
+import java.util.Scanner;
+
 public class ControlFlowExercises {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        for (int i = 0; i <= 100; i++) {
-            boolean isZero = i == 0;
-            boolean isMultipleOfThree = i % 3 == 0;
-            boolean isMultipleOfFive = i % 5 == 0;
-            if (isZero) {
-                System.out.println(i);
-            } else if (isMultipleOfThree && isMultipleOfFive) {
-                System.out.println("FizzBuzz");
-            } else if (isMultipleOfThree) {
-                System.out.println("Fizz");
-            } else if (isMultipleOfFive) {
-                System.out.println("Buzz");
-            } else {
-                System.out.println(i);
-            }
+        System.out.print("What number would you like to go up to? ");
+
+        int userNum = scanner.nextInt();
+        System.out.println("");
+
+        System.out.println("Here is your table\n\nnumber | squared | cubed\n------ | ------- | ------");
+
+        for (int i = 1; i <= userNum; i++) {
+            System.out.printf("%-7s| %-8s| %s%n", i, i * i, i * i * i);
         }
 
     }
