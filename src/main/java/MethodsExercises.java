@@ -43,6 +43,17 @@ public class MethodsExercises {
         return getInteger(1, 10);
     }
 
+    public static long getFactorial(int numInput, int tracker) {
+        if (numInput == 1) {
+            return 1;
+        }
+        do {
+            tracker--;
+            numInput *= tracker;
+        } while (tracker != 1);
+        return numInput;
+    }
+
     public static void main(String[] args) {
 
         System.out.println(addition(2, 2));
@@ -54,6 +65,8 @@ public class MethodsExercises {
         System.out.print("Enter a number between 1 and 10: ");
         int userInput = getInteger(1, 10);
         System.out.println("Your number is in the range.\nHere is your number: " + userInput);
+
+        System.out.println(getFactorial(userInput, userInput));
 
     }
 }
