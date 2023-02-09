@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class ControlFlowExercises {
     public static void main(String[] args) {
+
         Scanner exerciseFourScanner = new Scanner(System.in);
 
         String verify;
@@ -29,51 +30,45 @@ public class ControlFlowExercises {
             boolean isAB = (grade <= 87) && (grade >= 80);
             boolean isAC = (grade <= 79) && (grade >= 67);
             boolean isAD = (grade <= 66) && (grade >= 60);
-            boolean isAnF = grade <= 59;
-
-            boolean isAPlus = grade % 10 >= 8;
-            boolean isAMinus = grade % 10 <= 2;
 
             String letterGrade;
 
             if (isAnA) {
                 letterGrade = "A";
-                if (isAPlus) {
+                if (grade % 10 > 7 && grade != 89 && grade != 88) {
                     letterGrade += "+";
-                } else if (isAMinus) {
+                } else if (grade % 10 < 3 || grade == 89 || grade == 88) {
                     letterGrade += "-";
                 }
-                System.out.printf("The letter grade is: %s", letterGrade);
+                System.out.printf("The letter grade is: %s%n", letterGrade);
             } else if (isAB) {
                 letterGrade = "B";
-                if (isAPlus) {
+                if (grade % 10 > 5) {
                     letterGrade += "+";
-                } else if (isAMinus) {
+                } else if (grade % 10 < 3) {
                     letterGrade += "-";
                 }
-                System.out.printf("The letter grade is: %s", letterGrade);
+                System.out.printf("The letter grade is: %s%n", letterGrade);
             } else if (isAC) {
                 letterGrade = "C";
-                if (isAPlus) {
+                if (grade % 10 > 6 && grade != 67 && grade != 68 && grade != 69) {
                     letterGrade += "+";
-                } else if (isAMinus) {
+                } else if (grade == 67 ||grade == 68 || grade == 69) {
                     letterGrade += "-";
                 }
-                System.out.printf("The letter grade is: %s", letterGrade);
+                System.out.printf("The letter grade is: %s%n", letterGrade);
             } else if (isAD) {
                 letterGrade = "D";
-                if (isAPlus) {
+                if (grade % 10 > 5) {
                     letterGrade += "+";
-                } else if (isAMinus) {
+                } else if (grade % 10 < 3) {
                     letterGrade += "-";
                 }
-                System.out.printf("The letter grade is: %s", letterGrade);
-            } else if (isAnF) {
+                System.out.printf("The letter grade is: %s%n", letterGrade);
+            } else {
                 letterGrade = "F";
-                System.out.printf("The letter grade is: %s", letterGrade);
+                System.out.printf("The letter grade is: %s%n", letterGrade);
             }
-
-            System.out.println("");
 
 
         } while (verify.equalsIgnoreCase("y"));
