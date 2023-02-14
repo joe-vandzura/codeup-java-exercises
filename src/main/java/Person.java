@@ -22,11 +22,11 @@ public class Person {
 
     public void sayHello() {
 //TODO: print a message to the console using the person's name
-        System.out.println("Hello, " + this.name + "!");
+        System.out.println("Hello, " + name + "!");
     }
 
     public static void main(String[] args) {
-        Person joey = new Person();
+        Person joey = new Person("Joey");
 
         joey.sayHello();
 

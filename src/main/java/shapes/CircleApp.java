@@ -18,6 +18,5 @@ public class CircleApp {
         } while (input.yesNo(input.getString()));
 
         System.out.printf("You calculated the radii for %d circles!", Circle.numberOfCircles());
-
     }
 }

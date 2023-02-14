@@ -24,7 +24,7 @@ public class Input {
         if (num >= min && num <= max) {
             return num;
         }
-        System.out.printf("Not between %s and %s%n", min, max);
+        System.out.printf("Not between %d and %d%n", min, max);
         return getInt(min, max);
     }
 
@@ -32,12 +32,12 @@ public class Input {
         return parseDouble(getString());
     }
 
-    public double getDouble(int min, int max) {
+    public double getDouble(double min, double max) {
         double num = parseDouble(getString());
         if (num >= min && num <= max) {
             return num;
         }
-        System.out.printf("Not between %s and %s%n", min, max);
+        System.out.printf("Not between %f and %f%n", min, max);
         return getDouble(min, max);
     }
 
@@ -56,7 +56,7 @@ public class Input {
 
         System.out.println(myInput.getDouble());
 
-        System.out.println(myInput.getDouble(1, 10));
+        System.out.println(myInput.getDouble(1.0, 10.0));
     }
 
 }
