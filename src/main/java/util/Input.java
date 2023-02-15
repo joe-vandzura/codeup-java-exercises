@@ -6,7 +6,7 @@ import static java.lang.Integer.parseInt;
 
 public class Input {
 
-    private Scanner scanner;
+    private final Scanner scanner;
 
     public Input() {
         this.scanner = new Scanner(System.in);
@@ -21,6 +21,7 @@ public class Input {
 
     public int getInt(int min, int max) {
         int num = parseInt(getString());
+        System.out.println(num);
         if (num >= min && num <= max) {
             return num;
         }

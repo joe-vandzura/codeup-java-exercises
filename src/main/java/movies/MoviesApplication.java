@@ -1,7 +1,6 @@
 package movies;
 
 import util.Input;
-
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -89,7 +88,7 @@ public class MoviesApplication {
         2 - horror
         3 - scifi
         4 - musical
-        """);
+        Enter your choice:\040""");
         int newMovieCategory = input.getInt(0, 4);
         Movie newMovie = new Movie(newMovieName, movieCategory(newMovieCategory));
         movies = Arrays.copyOf(movies, movies.length);
