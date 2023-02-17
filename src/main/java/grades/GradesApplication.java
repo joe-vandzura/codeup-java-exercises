@@ -94,7 +94,7 @@ public class GradesApplication {
     }
 
     public static boolean anotherStudent() {
-        System.out.println("\nWould you like to see another student?\n");
+        System.out.print("\nWould you like to see another student?\n\n\n> ");
 
         return userInput.yesNo(userInput.getString());
     }
