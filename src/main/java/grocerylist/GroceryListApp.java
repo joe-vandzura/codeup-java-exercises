@@ -12,7 +12,7 @@ public class GroceryListApp {
 
     private static ArrayList<String> groceryCategories = new ArrayList<>(List.of("Fruits & Vegetables", "Meat & Seafood", "Bakery & Bread", "Dairy & Eggs", "Deli & Prepared Food", "Pantry", "Frozen Food"));
 
-    private static HashMap<String, Grocery> groceryList = new HashMap<>();
+    private static ArrayList<String> groceryList = new ArrayList<>();
 
 
 
@@ -22,13 +22,15 @@ public class GroceryListApp {
             if (promptToCreateNewInput()) {
                 do {
                     listGroceryCategories();
-                    System.out.println("Choose the category that the item falls under.");
+                    System.out.println("\nChoose the category that the item falls under.\n");
                     addNewGrocery();
 
                     System.out.println();
 
                 } while (promptToCreateNewInput());
             }
+
+            displayFinalList();
         }
         System.out.println("Alright, see ya!");
 
@@ -74,14 +76,21 @@ public class GroceryListApp {
             case 7 -> newGroceryCategory = "Frozen Food";
         }
 
-        System.out.println("Enter the name of the item.");
+        System.out.println("\nEnter the name of the item.\n");
         String newGroceryName = userInput.getString();
 
-        System.out.println("Enter the quantity.");
+        System.out.println("\nEnter the quantity.\n");
         int newGroceryQuantity = userInput.getInt(0, 9999);
 
         Grocery newGrocery = new Grocery(newGroceryName, newGroceryCategory, newGroceryQuantity);
-        groceryList.putIfAbsent( newGrocery.getName(), newGrocery);
+        groceryList.add(newGrocery.getName());
+    }
+
+    public static void displayFinalList() {
+        System.out.println("\nHere is your grocery list!\n");
+        for (String grocery : groceryList) {
+            System.out.println(grocery);
+        }
     }
 
 }
