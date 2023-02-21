@@ -49,6 +49,20 @@ public class Input {
         return getInt(min, max);
     }
 
+    public int getInt(int min, int max, String prompt) {
+        System.out.println(prompt);
+        try {
+            int input = Integer.parseInt(getString());
+            if (input >= min && input <= max) {
+                return input;
+            }
+            System.out.printf("Not between %d and %d.%n", min, max);
+        } catch (Exception e ) {
+            System.out.println("Did not enter a valid number value.");
+        }
+        return getInt(min, max);
+    }
+
     public double getDouble() {
         try {
             return Double.parseDouble(getString());
@@ -69,6 +83,20 @@ public class Input {
     }
 
     public double getDouble(double min, double max) {
+        try {
+            double input = Double.parseDouble(getString());
+            if (input >= min && input <= max) {
+                return input;
+            }
+            System.out.printf("Not between %f and %f.%n", min, max);
+        } catch (Exception e ) {
+            System.out.println("Did not enter a valid number value.");
+        }
+        return getDouble(min, max);
+    }
+
+    public double getDouble(double min, double max, String prompt) {
+        System.out.println(prompt);
         try {
             double input = Double.parseDouble(getString());
             if (input >= min && input <= max) {

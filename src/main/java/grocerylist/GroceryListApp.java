@@ -3,16 +3,15 @@ package grocerylist;
 import util.Input;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class GroceryListApp {
 
     private static Input userInput;
 
-    private static ArrayList<String> groceryCategories = new ArrayList<>(List.of("Fruits & Vegetables", "Meat & Seafood", "Bakery & Bread", "Dairy & Eggs", "Deli & Prepared Food", "Pantry", "Frozen Food"));
+    private static final ArrayList<String> groceryCategories = new ArrayList<>(List.of("Fruits & Vegetables", "Meat & Seafood", "Bakery & Bread", "Dairy & Eggs", "Deli & Prepared Food", "Pantry", "Frozen Food"));
 
-    private static ArrayList<String> groceryList = new ArrayList<>();
+    private static final ArrayList<String> groceryList = new ArrayList<>();
 
 
 
@@ -22,7 +21,6 @@ public class GroceryListApp {
             if (promptToCreateNewInput()) {
                 do {
                     listGroceryCategories();
-                    System.out.println("\nChoose the category that the item falls under.\n");
                     addNewGrocery();
 
                     System.out.println();
@@ -64,7 +62,7 @@ public class GroceryListApp {
     }
 
     public static void addNewGrocery() {
-        int categoryInput = userInput.getInt(1, 7);
+        int categoryInput = userInput.getInt(1, 7, "\nChoose the category that the item falls under.\n");
         String newGroceryCategory = "";
         switch (categoryInput) {
             case 1 -> newGroceryCategory = "Fruits & Vegetables";
@@ -76,11 +74,9 @@ public class GroceryListApp {
             case 7 -> newGroceryCategory = "Frozen Food";
         }
 
-        System.out.println("\nEnter the name of the item.\n");
-        String newGroceryName = userInput.getString();
+        String newGroceryName = userInput.getString("\nEnter the name of the item.\n");
 
-        System.out.println("\nEnter the quantity.\n");
-        int newGroceryQuantity = userInput.getInt(0, 9999);
+        int newGroceryQuantity = userInput.getInt(0, 9999, "\nEnter the quantity.\n");
 
         Grocery newGrocery = new Grocery(newGroceryName, newGroceryCategory, newGroceryQuantity);
         groceryList.add(newGrocery.getName());
