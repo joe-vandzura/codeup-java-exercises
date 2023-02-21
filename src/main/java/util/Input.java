@@ -1,9 +1,6 @@
 package util;
 import java.util.Scanner;
 
-import static java.lang.Double.parseDouble;
-import static java.lang.Integer.parseInt;
-
 public class Input {
 
     private final Scanner scanner;
@@ -15,31 +12,85 @@ public class Input {
         return this.scanner.nextLine();
     }
 
+    public String getString(String prompt) {
+        System.out.println(prompt);
+        return this.scanner.nextLine();
+    }
+
     public int getInt() {
-        return parseInt(getString());
+        int input;
+        try {
+            input = Integer.parseInt(getString());
+            return input;
+        } catch (NumberFormatException e) {
+            System.out.println("Did not enter a valid number value.");
+            return getInt();
+        }
+    }
+
+    public int getInt(String prompt) {
+        System.out.println(prompt);
+        int input;
+        try {
+            input = Integer.parseInt(getString());
+            return input;
+        } catch (NumberFormatException e) {
+            System.out.println("Did not enter a valid number value.");
+            return getInt();
+        }
     }
 
     public int getInt(int min, int max) {
-        int num = parseInt(getString());
-        System.out.println(num);
-        if (num >= min && num <= max) {
-            return num;
+        int input;
+        try {
+            input = Integer.parseInt(getString());
+            if (input >= min && input <= max) {
+                return input;
+            }
+            System.out.printf("Not between %d and %d.%n", min, max);
+            return getInt(min, max);
+        } catch (Exception e ) {
+            System.out.println("Did not enter a valid number value.");
+            return getInt(min, max);
         }
-        System.out.printf("Not between %d and %d%n", min, max);
-        return getInt(min, max);
     }
 
     public double getDouble() {
-        return parseDouble(getString());
+        double input;
+        try {
+            input = Double.parseDouble(getString());
+            return input;
+        } catch (NumberFormatException e) {
+            System.out.println("Did not enter a valid number value.");
+            return getDouble();
+        }
+    }
+
+    public double getDouble(String prompt) {
+        System.out.println(prompt);
+        double input;
+        try {
+            input = Double.parseDouble(getString());
+            return input;
+        } catch (NumberFormatException e) {
+            System.out.println("Did not enter a valid number value.");
+            return getDouble();
+        }
     }
 
     public double getDouble(double min, double max) {
-        double num = parseDouble(getString());
-        if (num >= min && num <= max) {
-            return num;
+        double input;
+        try {
+            input = Double.parseDouble(getString());
+            if (input >= min && input <= max) {
+                return input;
+            }
+            System.out.printf("Not between %f and %f.%n", min, max);
+            return getDouble(min, max);
+        } catch (Exception e ) {
+            System.out.println("Did not enter a valid number value.");
+            return getDouble(min, max);
         }
-        System.out.printf("Not between %f and %f%n", min, max);
-        return getDouble(min, max);
     }
 
     public boolean yesNo(String input) {
